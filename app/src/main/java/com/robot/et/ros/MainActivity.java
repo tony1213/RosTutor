@@ -14,11 +14,13 @@ import butterknife.OnClick;
 
 public class MainActivity extends RosActivity {
 
+    private static final String Master_URI = "http://192.168.2.166:11311";
+
     private MoveControler moveControler;
     private NodeConfiguration nodeConfiguration;
 
     public MainActivity(){
-        super("ARobot","ARobot",URI.create("http://192.168.2.166:11311"));
+        super("ARobot","ARobot",URI.create(Master_URI));
     }
 
     @Override
