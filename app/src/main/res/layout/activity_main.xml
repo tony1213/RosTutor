@@ -1,64 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.robot.et.ros.MainActivity">
+    android:orientation="horizontal">
 
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.618"
+        android:background="#7f7f7f">
 
-    <Button
-        android:text="↑"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="103dp"
-        android:id="@+id/forward" />
+        <com.robot.et.android_ros_common.view.RosImageView
+            android:id="@+id/rosImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        
+    </RelativeLayout>
 
-    <Button
-        android:text="←"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/forward"
-        android:layout_toLeftOf="@+id/forward"
-        android:layout_toStartOf="@+id/forward"
-        android:layout_marginRight="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="48dp"
-        android:id="@+id/left" />
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
 
-    <Button
-        android:text="→"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/left"
-        android:layout_toRightOf="@+id/forward"
-        android:layout_toEndOf="@+id/forward"
-        android:layout_marginLeft="20dp"
-        android:layout_marginStart="18dp"
-        android:id="@+id/right" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
 
-    <Button
-        android:text="↓"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/left"
-        android:layout_toLeftOf="@+id/right"
-        android:layout_toStartOf="@+id/right"
-        android:layout_marginTop="38dp"
-        android:id="@+id/backward" />
+        <com.robot.et.android_ros_common.view.VirtualJoystickView
+            android:id="@+id/virtualjoystick"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:adjustViewBounds="true" />
 
-    <Button
-        android:text="stop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/right"
-        android:layout_toRightOf="@+id/left"
-        android:layout_toEndOf="@+id/left"
-        android:id="@+id/stop" />
-</RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

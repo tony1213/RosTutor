@@ -1,26 +1,27 @@
 package com.robot.et.ros;
 
 import android.os.Bundle;
-import android.view.View;
 
+import com.robot.et.android_ros_common.view.VirtualJoystickView;
+
+import org.ros.address.InetAddressFactory;
 import org.ros.android.RosActivity;
 import org.ros.node.NodeConfiguration;
 import org.ros.node.NodeMainExecutor;
 
 import java.net.URI;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class MainActivity extends RosActivity {
 
+    @BindView(R.id.virtualjoystick)
+    VirtualJoystickView virtualJoystickView;
     private static final String Master_URI = "http://192.168.2.166:11311";
 
-    private MoveControler moveControler;
-    private NodeConfiguration nodeConfiguration;
-
-    public MainActivity(){
-        super("ARobot","ARobot",URI.create(Master_URI));
+    public MainActivity() {
+        super("ARobot", "ARobot", URI.create(Master_URI));
     }
 
     @Override
@@ -32,36 +33,8 @@ public class MainActivity extends RosActivity {
 
     @Override
     protected void init(NodeMainExecutor nodeMainExecutor) {
-        moveControler = new MoveControler();
-        moveControler.isPublishVelocity(false);
-        nodeConfiguration = NodeConfiguration.newPublic(getRosHostname());
+        NodeConfiguration nodeConfiguration = NodeConfiguration.newPublic(getRosHostname());
         nodeConfiguration.setMasterUri(getMasterUri());
-        nodeMainExecutor.execute(moveControler,nodeConfiguration);
+        nodeMainExecutor.execute(virtualJoystickView, nodeConfiguration.setNodeName("virtual_joystick"));
     }
-
-    @OnClick({R.id.forward,R.id.backward,R.id.left,R.id.right,R.id.stop})
-    public void execDirection(View view){
-        moveControler.isPublishVelocity(true);
-        switch (view.getId()) {
-            case R.id.forward:
-                moveControler.execMoveForword();
-                break;
-            case R.id.backward:
-                moveControler.execMoveBackForward();
-                break;
-            case R.id.left:
-                moveControler.execTurnLeft();
-                break;
-            case R.id.right:
-                moveControler.execTurnRight();
-                break;
-            case R.id.stop:
-                moveControler.isPublishVelocity(false);
-                break;
-        }
-    }
-
-
-
-
 }
