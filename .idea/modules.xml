@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/RosTutor.iml" filepath="$PROJECT_DIR$/RosTutor.iml" />
-      <module fileurl="file://$PROJECT_DIR$/android_ros_common/android_ros_common.iml" filepath="$PROJECT_DIR$/android_ros_common/android_ros_common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RosProject.iml" filepath="$PROJECT_DIR$/RosProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android_10/android_10.iml" filepath="$PROJECT_DIR$/android_10/android_10.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android_15/android_15.iml" filepath="$PROJECT_DIR$/android_15/android_15.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

@@ -1,1 +1,1 @@
-include ':app', ':android_ros_common'
+include ':app', ':android_10', ':android_15'

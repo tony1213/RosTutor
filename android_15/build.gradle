@@ -1,0 +1,19 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 15
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 15
+        versionCode 1
+        versionName "1.0"
+    }
+}
+
+dependencies {
+    compile 'org.ros.rosjava_core:rosjava_geometry:[0.2,0.3)'
+    compile 'com.android.support:support-v4:21.0.3'
+    compile 'org.ros.rosjava_messages:visualization_msgs:[1.11,1.12)'
+    compile project(':android_10')
+}
