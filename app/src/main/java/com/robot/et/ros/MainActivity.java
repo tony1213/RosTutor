@@ -58,8 +58,4 @@ public class MainActivity extends RosActivity {
                 break;
         }
     }
-
-
-
-
 }
